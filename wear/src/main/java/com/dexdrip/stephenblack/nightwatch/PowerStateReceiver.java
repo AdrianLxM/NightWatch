@@ -12,9 +12,9 @@ public class PowerStateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action.equals(Intent.ACTION_POWER_CONNECTED)) {
-            startStopActivity(true,NWPreferences.class,context);
+            startStopActivity(true,ChargerActivity.class,context);
         } else if (action.equals(Intent.ACTION_POWER_DISCONNECTED)) {
-            startStopActivity(false, NWPreferences.class, context);
+            startStopActivity(false, ChargerActivity.class, context);
         }
     }
 

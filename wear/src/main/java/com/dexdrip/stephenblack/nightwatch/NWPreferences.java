@@ -13,7 +13,7 @@ public class NWPreferences extends PreferenceActivity {
         super.onCreate(savedInstanceState);
         Bundle extras = this.getIntent().getExtras();
         if (extras == null || extras.getBoolean("start", true)) {
-            this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             addPreferencesFromResource(R.xml.preferences);
         } else {
             this.finish();
