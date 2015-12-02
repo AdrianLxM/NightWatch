@@ -3,9 +3,12 @@ package com.dexdrip.stephenblack.nightwatch;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.WatchViewStub;
+import android.util.Log;
 import android.widget.TextView;
 
 public class ChargerActivity extends WearableActivity {
@@ -27,16 +30,24 @@ public class ChargerActivity extends WearableActivity {
                 }
             });
             setAmbientEnabled();
+
+            //some more tests:
+            getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
         } else {
+            Log.d("Adrian", "finish onCreate");
             this.finish();
         }
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
+        Log.d("Adrian", "onNewIntent");
         super.onNewIntent(intent);
-        boolean start = intent.getExtras().getBoolean("start");
+        boolean start = intent.getExtras().getBoolean("start", true);
         if (start == false) {
+            Log.d("Adrian", "finish onNewIntent");
             this.finish();
         }
     }
